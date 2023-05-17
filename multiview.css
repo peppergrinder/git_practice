@@ -1,0 +1,36 @@
+body {
+    background-color: #000;
+    color: #fff;
+}
+
+.title {
+  text-align: center;
+}
+
+
+#grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: auto;
+}
+
+#container > div {
+  min-width: 80px;
+  min-height: 80px;
+  border: 1px solid black;
+}
+
+.player-container {
+  width: 33%;
+}
+
+.player {
+  min-height: 100px;
+  min-width: 200px;
+  max-width: 400px;
+}
+
+.player-title {
+  text-align: center;
+}
