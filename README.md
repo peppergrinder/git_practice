@@ -1,4 +1,4 @@
-# Git - help
+# git & GitHub - HowTo
 [codecademy-course](https://www.codecademy.com/learn/learn-git/modules/learn-git-git-backtracking-u/cheatsheet)
 
 [cheatsheet](https://www.codecademy.com/resources/docs/git/pull)
@@ -15,6 +15,7 @@
 | `git init` | creates a new Git repository. |
 | `git add` | adds files from the working directory to the staging area. |
 | `git add filename_1 filename_2` | add more files to stage. |
+| `git add .` | add all files from WorkingDir to stage. |
 | `git status` | inspects the contents of the working directory and staging area. |
 | `git commit` | permanently stores file changes from the staging area in the repository. |
 | `git log` | shows a list of all previous commits. |
@@ -110,4 +111,5 @@ $ git branch
 | `git merge origin/main` | merge fetched changes from origin to your "main" branch. |
 | `git add filename` | add edited file "filename" to the stage. |
 | `git commit -m "commit msg"` | commit changes to your local copy. |
+| `git commit --amend --no-edit` | allows for editing previous commit, instead of creating a new one, while keeping the same commit message (--no=edit). |
 | `git push origin your_branch` | push changes to origin into branch "your_branch. |
