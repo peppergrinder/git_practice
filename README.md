@@ -1,5 +1,6 @@
 # Git - help
 [codecademy-course](https://www.codecademy.com/learn/learn-git/modules/learn-git-git-backtracking-u/cheatsheet)
+
 [cheatsheet](https://www.codecademy.com/resources/docs/git/pull)
 
 | Command                               | Description   |
@@ -52,7 +53,7 @@ $ git branch
 
 ## Branches
 | Command                               | Description   |
-|---------------------------------------|-------------|
+|---------------------------------------|---------------|
 | `git branch` | show all branches |
 | `git branch new-branch` | Create a new branch "new-branch" |
 | `git checkout new-branch` | switch to branch "new-branch" |
@@ -63,24 +64,33 @@ $ git branch
 
 ## HEAD commit
 | Command                               | Description   |
-|---------------------------------------|-------------|
+|---------------------------------------|---------------|
 | `git show HEAD` | display everything the git log command displays for the HEAD commit, plus all the file changes that were committed. |
 | `git checkout HEAD filename` | restore the file in your working directory to look exactly as it did when you last made a commit. |
 | `git checkout -- filename` | shortcut - for above. |
 
+## git diff, log
+
+| Command                               | Description   |
+|---------------------------------------|---------------|
+| `git diff fileName` | check for differences between your file and the last commit. |
+| `git log -S "keyword"` | filter log for "keyword" |
+| `git log --oneline` | log as 'one liner' |
+| `git log --oneline --graph` | log as 'one liner' with branches graph |
+
 ## git reset I (un-stage)
 | Command                               | Description   |
-|---------------------------------------|-------------|
+|---------------------------------------|---------------|
 | `git reset HEAD filename` | resets the file in the staging area to be the same as the HEAD commit. It does not discard file changes from the working directory, it just removes them from the staging area. |
 
 ## git reset II
 | Command                               | Description   |
-|---------------------------------------|-------------|
+|---------------------------------------|---------------|
 | `git reset commit_SHA` | This command works by using the first 7 characters of the SHA of a previous commit (git reset 5d69206). |
 
 ## git stash
 | Command                               | Description   |
-|---------------------------------------|-------------|
+|---------------------------------------|---------------|
 | `git stash -h` |  |
 | `git stash` | save working dir to shash (locally) |
 | `git branch xyz_123` | create new branch "xyz_123" |
@@ -93,7 +103,7 @@ $ git branch
 ## Clone from remote
 
 | Command                               | Description   |
-|---------------------------------------|-------------|
+|---------------------------------------|---------------|
 | `git clone remote_location clone_name` | get your replica / clone_name is the name you give to the directory in which Git will clone the repository. |
 | `git remote -v` | list remotes. |
 | `git fetch` | fetch changes from origin. |
