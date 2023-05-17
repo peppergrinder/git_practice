@@ -20,6 +20,18 @@
 | `git commit` | permanently stores file changes from the staging area in the repository. |
 | `git log` | shows a list of all previous commits. |
 
+# Contents
++ [Create a new git repository](#create-a-new-git-repository)
++ [Add existing code to empty GitHub repo](#add-existing-code-to-empty-github-repo)
++ [GitHub Flow](#github-flow)
++ [Create and merge pull requests](#github-steps-to-create-and-merge-pull-requests)
++ [Branches](#branches)
++ [HEAD commit](#head-commit)
++ [git diff, log](#git-diff-log)
++ [git reset](#git-reset-i-un-stage)
++ [git stash](#git-stash)
++ [Clone from remote](#clone-from-remote)
+
 ## Create a new git repository
 ```
 $ git init
