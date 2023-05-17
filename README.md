@@ -50,6 +50,17 @@ $ git branch
 2.	Make changes from feedback
 3.	Merge code
 
+## Branches
+| Command                               | Description   |
+|---------------------------------------|-------------|
+| `git branch` | show all branches |
+| `git branch new-branch` | Create a new branch "new-branch" |
+| `git checkout new-branch` | switch to branch "new-branch" |
+| --- | --- |
+| `git checkout main` | switch to branch "main" |
+| `git merge new-branch` | this will add the changes from "new-branch" into the current ("main") branch |
+| `git branch -d new-branch` | deleting branch "new-branch" - good practice to delete after merge into main |
+
 ## HEAD commit
 | Command                               | Description   |
 |---------------------------------------|-------------|
