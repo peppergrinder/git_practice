@@ -18,6 +18,67 @@
 | `git commit` | permanently stores file changes from the staging area in the repository. |
 | `git log` | shows a list of all previous commits. |
 
+## Create a new git repository
+```
+$ git init
+Initialized empty Git repository in /home/user/new-project/.git/
+$ echo "Hello World!" >> hello.txt
+$ git add hello.txt 
+$ git commit -m 'initial commit'
+[main (root-commit) bb0e565] initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.txt
+$ git branch
+* main
+```
+
+## Add existing code to empty GitHub repo
+| Command                               | Description   |
+|---------------------------------------|-------------|
+| `git remote add origin https://github.com/YOURREPO` | link to your empty repo on GitHub. |
+| `git push -u origin main` | push changes to GitHub (`-u`, `--set-upstream` is optional). |
+
+## GitHub Flow
+1.	Work on a specific branch
+2.	Commit changes and push code to remote repo
+3.	Create pull request
+4.	Discuss pull request with reviewers
+5.	Merge branch once pull request accepted (and delete branch)
+
+## GitHub steps to create and merge pull requests
+1.	Submit pull request with description
+2.	Make changes from feedback
+3.	Merge code
+
+## HEAD commit
+| Command                               | Description   |
+|---------------------------------------|-------------|
+| `git show HEAD` | display everything the git log command displays for the HEAD commit, plus all the file changes that were committed. |
+| `git checkout HEAD filename` | restore the file in your working directory to look exactly as it did when you last made a commit. |
+| `git checkout -- filename` | shortcut - for above. |
+
+## git reset I (un-stage)
+| Command                               | Description   |
+|---------------------------------------|-------------|
+| `git reset HEAD filename` | resets the file in the staging area to be the same as the HEAD commit. It does not discard file changes from the working directory, it just removes them from the staging area. |
+
+## git reset II
+| Command                               | Description   |
+|---------------------------------------|-------------|
+| `git reset commit_SHA` | This command works by using the first 7 characters of the SHA of a previous commit (git reset 5d69206). |
+
+## git stash
+| Command                               | Description   |
+|---------------------------------------|-------------|
+| `git stash -h` |  |
+| `git stash` | save working dir to shash (locally) |
+| `git branch xyz_123` | create new branch "xyz_123" |
+| `git checkout xyz_123` | switch to other branch "xyz_123" |
+| --- | --- |
+| `git checkout main` | switch to main branch again |
+| `git stash list` | show your stashes |
+| `git stash pop` | bring back stash |
+
 ## Clone from remote
 
 | Command                               | Description   |
