@@ -31,6 +31,7 @@
 + [git reset](#git-reset-i-un-stage)
 + [git stash](#git-stash)
 + [Clone from remote](#clone-from-remote)
++ [gitignore](#gitignore)
 
 ## Create a new git repository
 ```
@@ -125,3 +126,9 @@ $ git branch
 | `git commit -m "commit msg"` | commit changes to your local copy. |
 | `git commit --amend --no-edit` | allows for editing previous commit, instead of creating a new one, while keeping the same commit message (--no=edit). |
 | `git push origin your_branch` | push changes to origin into branch "your_branch. |
+
+## gitignore
+
+| Command                               | Description   |
+|---------------------------------------|---------------|
+| `find . -name .DS_Store -print0 | xargs -0 git rm --ignore-unmatch` | find and remove all .DS_Store files including subfolders (`-f` at end might be required). |
