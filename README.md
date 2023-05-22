@@ -132,3 +132,7 @@ $ git branch
 | Command                               | Description   |
 |---------------------------------------|---------------|
 | `find . -name .DS_Store -print0 | xargs -0 git rm --ignore-unmatch` | find and remove all .DS_Store files including subfolders (`-f` at end might be required). |
+| `git rm --cached .DS_Store` | manually remove .DS_Store files. |
+| --- | --- |
+| `echo .DS_Store >> .gitignore_global` | create a local `.gitignore`. (watch for correct directory) |
+| `git config --global core.excludesfile .gitignore_global` | create a local `.gitignore`. (do this in correct directory) |
