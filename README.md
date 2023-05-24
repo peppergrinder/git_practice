@@ -31,6 +31,7 @@
 + [git reset](#git-reset-i-un-stage)
 + [git stash](#git-stash)
 + [Clone from remote](#clone-from-remote)
++ [git rebase](#rebase)
 + [gitignore](#gitignore)
 
 ## Create a new git repository
@@ -91,6 +92,7 @@ $ git branch
 | `git log -S "keyword"` | filter log for "keyword" |
 | `git log --oneline` | log as 'one liner' |
 | `git log --oneline --graph` | log as 'one liner' with branches graph |
+| `git log --graph --decorate --oneline --all` | log extra options |
 
 ## git reset I (un-stage)
 | Command                               | Description   |
@@ -127,7 +129,15 @@ $ git branch
 | `git commit --amend --no-edit` | allows for editing previous commit, instead of creating a new one, while keeping the same commit message (--no=edit). |
 | `git push origin your_branch` | push changes to origin into branch "your_branch. |
 
+## rebase
+Git rebase is an important feature for collaborating effectively in a development team. Using git rebase, you can keep your branches up to date with the most recent changes while keeping your in-progress changes isolated!
+
+| Command                               | Description   |
+|---------------------------------------|---------------|
+| `git rebase main` | rebase your current branch to main. |
+
 ## gitignore
+[GitHub’s gitignore repository](https://github.com/github/gitignore)
 
 | Command                               | Description   |
 |---------------------------------------|---------------|
@@ -135,4 +145,18 @@ $ git branch
 | `git rm --cached .DS_Store` | manually remove .DS_Store files. |
 | --- | --- |
 | `echo .DS_Store >> .gitignore_global` | create a local `.gitignore`. (watch for correct directory) |
-| `git config --global core.excludesfile .gitignore_global` | create a local `.gitignore`. (do this in correct directory) |
+| `git config --global core.excludesfile **.gitignore_global**` | create a global `.gitignore`. (p.e. in GitHub directory on your pc) |
+| `git config --global core.excludesfile` | shows the name of your global `.gitignore`. |
+| --- | --- |
+| `node_modules/` | ignore the node_modules directory, and all subdirectories and files inside. |
+| `*.html` | ignore all `.html` files. |
+| `example*` | ignore all any files starting with `example`. |
+| `!` | ignore all any files starting with `example`. |
+| Negation | --- |
+| `index*` | will ignore all files starting with `index` except for `src/index.css`. |
+| `!public/index.css` | but, we cannot negate a file inside an ignored directory. |
+| Range | - [] - |
+| `[a-z], [A-Z], [0-9]` | match a single character from a set of characters or a range of characters. |
+| `**` | match 0 or more directories. |
+| `**/temp/*.log` | match all `.log` files in all `temp` directories and sub-dirs in root-dir. |
+| `v[1-3]/**/*.log` | match all `.log` files in `v1, v2, v3` directories and sub-dirs. |
