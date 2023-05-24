@@ -31,6 +31,7 @@
 + [git reset](#git-reset-i-un-stage)
 + [git stash](#git-stash)
 + [Clone from remote](#clone-from-remote)
++ [Forking](#forking)
 + [git rebase](#rebase)
 + [gitignore](#gitignore)
 
@@ -128,6 +129,13 @@ $ git branch
 | `git commit -m "commit msg"` | commit changes to your local copy. |
 | `git commit --amend --no-edit` | allows for editing previous commit, instead of creating a new one, while keeping the same commit message (--no=edit). |
 | `git push origin your_branch` | push changes to origin into branch "your_branch. |
+
+## Forking
+Get forking https from Git Hub and add it to your account. 
+| Command                               | Description   |
+|---------------------------------------|---------------|
+| `git remote add upstream https://github.com/...` | accepts updates from original. |
+| `git fetch upstream ` | fetches updates from original. |
 
 ## rebase
 Git rebase is an important feature for collaborating effectively in a development team. Using git rebase, you can keep your branches up to date with the most recent changes while keeping your in-progress changes isolated!
