@@ -159,7 +159,7 @@ Git rebase is an important feature for collaborating effectively in a developmen
 | `node_modules/` | ignore the node_modules directory, and all subdirectories and files inside. |
 | `*.html` | ignore all `.html` files. |
 | `example*` | ignore all any files starting with `example`. |
-| `!` | ignore all any files starting with `example`. |
+| `!` | Negation |
 | Negation | --- |
 | `index*` | will ignore all files starting with `index` except for `src/index.css`. |
 | `!public/index.css` | but, we cannot negate a file inside an ignored directory. |
