@@ -100,10 +100,11 @@ $ git branch
 |---------------------------------------|---------------|
 | `git reset HEAD filename` | resets the file in the staging area to be the same as the HEAD commit. It does not discard file changes from the working directory, it just removes them from the staging area. |
 
-## git reset II
+## git reset II (and force-push to GitHub)
 | Command                               | Description   |
 |---------------------------------------|---------------|
 | `git reset commit_SHA` | This command works by using the first 7 characters of the SHA of a previous commit (git reset 5d69206). |
+| `git push -f origin main`  | force push your reset to GitHub (Your branch is behind 'origin/main' by 1 commit,...) | 
 
 ## git stash
 | Command                               | Description   |
