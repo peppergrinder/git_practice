@@ -103,9 +103,9 @@ $ git branch
 ## git reset II (and force-push to GitHub after)
 | Command                               | Description   |
 |---------------------------------------|---------------|
-| `git reset commit_SHA` | This command works by using the first 7 characters of the SHA of a previous commit (git reset 5d69206). |
-| `git reset 5d69206 --hard  | hard reset might be needed.  |
-| `git push -f origin main`  | force push your reset to GitHub (Your branch is behind 'origin/main' by 1 commit,...) | 
+| `git reset commit_SHA`                | This command works by using the first 7 characters of the SHA of a previous commit (git reset 5d69206). |
+| `git reset 5d69206 --hard`            | hard reset might be needed.  |
+| `git push -f origin main`             | force push your reset to GitHub (Your branch is behind 'origin/main' by 1 commit,...) | 
 
 ## git stash
 | Command                               | Description   |
