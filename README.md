@@ -85,9 +85,9 @@ $ git branch
 ## HEAD commit
 | Command                               | Description   |
 |---------------------------------------|---------------|
-| `git show HEAD` | display everything the git log command displays for the HEAD commit, plus all the file changes that were committed. |
-| `git checkout HEAD filename` | restore the file in your working directory to look exactly as it did when you last made a commit. |
-| `git checkout -- filename` | shortcut - for above. |
+| `git show HEAD`                       | display everything the git log command displays for the HEAD commit, plus all the file changes that were committed. |
+| `git checkout HEAD filename`          | restore the file in your working directory to look exactly as it did when you last made a commit. |
+| `git checkout -- filename`            | shortcut - for above. |
 
 ## git diff, log
 
@@ -134,7 +134,7 @@ $ git branch
 | `git add filename` | add edited file "filename" to the stage. |
 | `git commit -m "commit msg"` | commit changes to your local copy. |
 | `git commit --amend --no-edit` | allows for editing previous commit, instead of creating a new one, while keeping the same commit message (--no=edit). |
-| `git push origin your_branch` | push changes to origin into branch "your_branch. |
+| `git push origin your_branch` | push changes to origin into branch `your_branch`. |
 
 ## Forking
 Get forking https from Git Hub and add it to your account. 
