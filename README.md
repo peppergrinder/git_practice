@@ -1,6 +1,8 @@
 # git & GitHub - HowTo
 [codecademy-course](https://www.codecademy.com/learn/learn-git/modules/learn-git-git-backtracking-u/cheatsheet)
 
+[cheatsheet-edu](/resources/pdf/git-cheat-sheet-education.pdf)
+
 [cheatsheet](https://www.codecademy.com/resources/docs/git/pull)
 
 | Command                               | Description   |
@@ -8,6 +10,8 @@
 | `git -h` | general help |
 | `git help -a` | detailed help |
 | `git branch -h` | help on branches |
+| `git config --edit` | edit your config file |
+| `git config --edit --global` | edit your global config file |
 
 ## Generalizations
 | Command                               | Description   |
@@ -136,8 +140,26 @@ $ git branch
 Get forking https from Git Hub and add it to your account. 
 | Command                               | Description   |
 |---------------------------------------|---------------|
-| `git remote add upstream https://github.com/...` | accepts updates from original. |
-| `git fetch upstream ` | fetches updates from original. |
+| `git clone https://github.com/...` | Clone your fork locally. |
+| `git remote -v` | See that the original repo forked from does not exist yet. |
+| `git remote add upstream https://github.com/...` | accepts updates from original repo. |
+| `git fetch upstream` | fetches updates from original branches. |
+| `git merge upstream/main main` | Merge changes from upstream branch 'main' to your local 'main' branch. |
+
+To add your origin permanently you can add it to `git config --edit` under `[core]` in **`[checkout]`**:
+```
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+        ignorecase = true
+        precomposeunicode = true
+[checkout]
+        defaultRemote = origin
+[remote "origin"]
+        url = ...
+```
 
 ## rebase
 Git rebase is an important feature for collaborating effectively in a development team. Using git rebase, you can keep your branches up to date with the most recent changes while keeping your in-progress changes isolated!
