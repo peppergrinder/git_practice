@@ -1,4 +1,5 @@
 # git & GitHub - HowTo
+
 [codecademy-course](https://www.codecademy.com/learn/learn-git/modules/learn-git-git-backtracking-u/cheatsheet)
 
 [cheatsheet-edu](/resources/pdf/git-cheat-sheet-education.pdf)
@@ -14,6 +15,7 @@
 | `git config --edit --global` | edit your global config file |
 
 ## Generalizations
+
 | Command                               | Description   |
 |---------------------------------------|-------------|
 | `git init` | creates a new Git repository. |
@@ -21,10 +23,12 @@
 | `git add filename_1 filename_2` | add more files to stage. |
 | `git add .` | add all files from WorkingDir to stage. |
 | `git status` | inspects the contents of the working directory and staging area. |
-| `git commit` | permanently stores file changes from the staging area in the repository. |
+| `git commit -m "commit msg"` | permanently stores file changes from the staging area in the repository. |
 | `git log` | shows a list of all previous commits. |
 
-# Contents
+## Contents
+
++ [Visual Studio Code integration](#git-integration-visual-studio-code-and-first-time-setup)
 + [Create a new git repository](#create-a-new-git-repository)
 + [Add existing code to empty GitHub repo](#add-existing-code-to-empty-github-repo)
 + [GitHub Flow](#github-flow)
@@ -39,8 +43,20 @@
 + [git rebase](#rebase)
 + [gitignore](#gitignore)
 
-## Create a new git repository
+## Git integration Visual Studio Code and first-time setup
+
+```zsh
+git --version
+git config  --global --list
+git config --global user.name "peppergrinder"
+git config --global user.email  "thomas.rosenfelder@swisscom.com"
+git config --global merge.tool vscode # needed for VSC to sync
+git config --global mergetool.vscode.cmd 'code --wait $MERGED' # needed for VSC to sync
 ```
+
+## Create a new git repository
+
+```zsh
 $ git init
 Initialized empty Git repository in /home/user/new-project/.git/
 $ echo "Hello World!" >> hello.txt
@@ -54,24 +70,28 @@ $ git branch
 ```
 
 ## Add existing code to empty GitHub repo
+
 | Command                               | Description   |
 |---------------------------------------|-------------|
 | `git remote add origin https://github.com/YOURREPO` | link to your empty repo on GitHub. |
 | `git push -u origin main` | push changes to GitHub (`-u`, `--set-upstream` is optional). |
 
 ## GitHub Flow
-1.	Work on a specific branch
-2.	Commit changes and push code to remote repo
-3.	Create pull request
-4.	Discuss pull request with reviewers
-5.	Merge branch once pull request accepted (and delete branch)
+
+1. Work on a specific branch
+2. Commit changes and push code to remote repo
+3. Create pull request
+4. Discuss pull request with reviewers
+5. Merge branch once pull request accepted (and delete branch)
 
 ## GitHub steps to create and merge pull requests
-1.	Submit pull request with description
-2.	Make changes from feedback
-3.	Merge code
+
+1. Submit pull request with description
+2. Make changes from feedback
+3. Merge code
 
 ## Branches
+
 | Command                               | Description   |
 |---------------------------------------|---------------|
 | `git branch` | show all branches |
@@ -83,6 +103,7 @@ $ git branch
 | `git branch -d new-branch` | deleting branch "new-branch" - good practice to delete after merge into main |
 
 ## HEAD commit
+
 | Command                               | Description   |
 |---------------------------------------|---------------|
 | `git show HEAD`                       | display everything the git log command displays for the HEAD commit, plus all the file changes that were committed. |
@@ -100,18 +121,21 @@ $ git branch
 | `git log --graph --decorate --oneline --all` | log extra options |
 
 ## git reset I (un-stage)
+
 | Command                               | Description   |
 |---------------------------------------|---------------|
 | `git reset HEAD filename` | resets the file in the staging area to be the same as the HEAD commit. It does not discard file changes from the working directory, it just removes them from the staging area. |
 
 ## git reset II (and force-push to GitHub after)
+
 | Command                               | Description   |
 |---------------------------------------|---------------|
 | `git reset commit_SHA`                | This command works by using the first 7 characters of the SHA of a previous commit (git reset 5d69206). |
 | `git reset 5d69206 --hard`            | hard reset might be needed.  |
-| `git push -f origin main`             | force push your reset to GitHub (Your branch is behind 'origin/main' by 1 commit,...) | 
+| `git push -f origin main`             | force push your reset to GitHub (Your branch is behind 'origin/main' by 1 commit,...) |
 
 ## git stash
+
 | Command                               | Description   |
 |---------------------------------------|---------------|
 | `git stash -h` |  |
@@ -137,7 +161,9 @@ $ git branch
 | `git push origin your_branch` | push changes to origin into branch `your_branch`. |
 
 ## Forking
-Get forking https from Git Hub and add it to your account. 
+
+Get forking https from Git Hub and add it to your account.
+
 | Command                               | Description   |
 |---------------------------------------|---------------|
 | `git clone https://github.com/...` | Clone your fork locally. |
@@ -147,7 +173,8 @@ Get forking https from Git Hub and add it to your account.
 | `git merge upstream/main main` | Merge changes from upstream branch 'main' to your local 'main' branch. |
 
 To add your origin permanently you can add it to `git config --edit` under `[core]` in **`[checkout]`**:
-```
+
+```json
 [core]
         repositoryformatversion = 0
         filemode = true
@@ -162,6 +189,7 @@ To add your origin permanently you can add it to `git config --edit` under `[cor
 ```
 
 ## rebase
+
 Git rebase is an important feature for collaborating effectively in a development team. Using git rebase, you can keep your branches up to date with the most recent changes while keeping your in-progress changes isolated!
 
 | Command                               | Description   |
@@ -169,6 +197,7 @@ Git rebase is an important feature for collaborating effectively in a developmen
 | `git rebase main` | rebase your current branch to main. |
 
 ## gitignore
+
 [GitHub’s gitignore repository](https://github.com/github/gitignore)
 
 | Command                               | Description   |
