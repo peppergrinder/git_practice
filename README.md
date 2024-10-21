@@ -48,8 +48,8 @@
 ```zsh
 git --version
 git config  --global --list
-git config --global user.name "peppergrinder"
-git config --global user.email  "thomas.rosenfelder@swisscom.com"
+git config --global user.name "UserName"
+git config --global user.email  "your@email.com"
 git config --global merge.tool vscode # needed for VSC to sync
 git config --global mergetool.vscode.cmd 'code --wait $MERGED' # needed for VSC to sync
 ```
@@ -72,9 +72,12 @@ $ git branch
 ## Add existing code to empty GitHub repo
 
 | Command                               | Description   |
-|---------------------------------------|-------------|
+| ------------------------------------- | ------------- |
 | `git remote add origin https://github.com/YOURREPO` | link to your empty repo on GitHub. |
 | `git push -u origin main` | push changes to GitHub (`-u`, `--set-upstream` is optional). |
+| From here you can: |  |
+| `git pull origin main`    | Pull changes from origin |
+| `git push`        | Since origin is set, we can simply push |
 
 ## GitHub Flow
 
@@ -93,22 +96,22 @@ $ git branch
 ## Branches
 
 | Command                               | Description   |
-|---------------------------------------|---------------|
+| ------------------------------------- | ------------- |
 | `git branch` | show all branches |
-| `git branch new-branch` | Create a new branch "new-branch" |
-| `git checkout new-branch` | switch to branch "new-branch" |
+| `git branch new-branch`     | Create a new branch "new-branch" |
+| `git checkout new-branch`   | switch to branch "new-branch" |
 | --- | --- |
-| `git checkout main` | switch to branch "main" |
-| `git merge new-branch` | this will add the changes from "new-branch" into the current ("main") branch |
-| `git branch -d new-branch` | deleting branch "new-branch" - good practice to delete after merge into main |
+| `git checkout main`         | switch to branch "main" |
+| `git merge new-branch`      | this will add the changes from "new-branch" into the current ("main") branch |
+| `git branch -d new-branch`  | deleting branch "new-branch" - good practice to delete after merge into main |
 
 ## HEAD commit
 
-| Command                               | Description   |
-|---------------------------------------|---------------|
-| `git show HEAD`                       | display everything the git log command displays for the HEAD commit, plus all the file changes that were committed. |
-| `git checkout HEAD filename`          | restore the file in your working directory to look exactly as it did when you last made a commit. |
-| `git checkout -- filename`            | shortcut - for above. |
+| Command                       | Description   |
+|-------------------------------|---------------|
+| `git show HEAD`               | display everything the git log command displays for the HEAD commit, plus all the file changes that were committed. |
+| `git checkout HEAD filename`  | restore the file in your working directory to look exactly as it did when you last made a commit. |
+| `git checkout -- filename`    | shortcut - for above. |
 
 ## git diff, log
 
