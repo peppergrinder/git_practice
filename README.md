@@ -209,7 +209,7 @@ Git rebase is an important feature for collaborating effectively in a developmen
 | `git rm --cached .DS_Store` | manually remove .DS_Store files. |
 | --- | --- |
 | `echo .DS_Store >> .gitignore` | create a local `.gitignore`. (watch for correct directory) |
-| `git config --global core.excludesfile **.gitignore_global**` | create a global `.gitignore`. (p.e. in GitHub directory on your pc) |
+| `git config --global core.excludesfile .gitignore_global` | link a global `.gitignore_global`. (p.e. in GitHub directory on your pc / needs to exist prior) |
 | `git config --global core.excludesfile` | shows the name of your global `.gitignore`. |
 | --- | --- |
 | `node_modules/` | ignore the node_modules directory, and all subdirectories and files inside. |
