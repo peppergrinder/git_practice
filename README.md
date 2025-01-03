@@ -45,7 +45,7 @@
 + [gitignore](#gitignore)
 + [GitHub Features](#github-features)
   + [GitHub Issues](#github-issues)
-  + [GitHub CLI](#github-cli)
+  + [GitHub CLI](#github-cli-gh)
   + [GitHub Actions](#github-actions)
   + [GitHub Project Management](#github-project-management)
   + [Conclusion](#conclusion)
@@ -277,7 +277,13 @@ Download and execute the installer for your operating system from the GitHub CLI
 `gh --version`
 
 Review the list of the supported APIs and functionalities:
-`gh --help`
+
+| Command                               | Description   |
+|---------------------------------------|---------------|
+| `gh --help`      | General help     |
+| `gh auth --help` | Learn about auth |
+| `gh auth status` | Check auth status |
+| `gh auth login` | Login to GitHub from your terminal |
 
 #### GitHub CLI in action
 
@@ -308,6 +314,7 @@ View issues: `gh issue status`
 If running into this: `X No default remote repository has been set for this directory.`
 
 run this: `gh repo set-default`
+
 ```zsh
 % gh repo set-default
 This command sets the default remote repository to use when querying the
@@ -371,6 +378,7 @@ ID       TITLE                LABELS  UPDATED
 ```
 
 Let's now create a new branch to actually fix the issue.
+
 ```zsh
 % git checkout -b "fix-magic8" 
 Switched to a new branch 'fix-magic8'
@@ -409,6 +417,7 @@ Merging pull request Codecademy/try-github-CLI-off-platform-project#1584 (Fix ma
 ```
 
 > Error: GraphQL: peppergrinder does not have the correct permissions to execute `MergePullRequest` (mergePullRequest)
+> Check the next excercise, where you fork a repo and update your GitHub fork version. Here merging is not a problem.
 
 Once the pull request is merged, check back the status of the issues and notice that the issue is now closed and no longer listed under the open issues:
 `gh issue status`
@@ -416,6 +425,8 @@ Once the pull request is merged, check back the status of the issues and notice 
 ### GitHub Actions
 
 Want to add automated tests after a pull request is created? Want to trigger something after a branch is merged into main? We can use GitHub Actions!
+
+GitHub Actions is a powerful, advanced GitHub feature that enables users to define custom and automated workflows triggered on various types of events such as pushing code or creating a pull request. The workflows execute inside a temporary container running in GitHub infrastructure.
 
 ### GitHub Project Management
 
