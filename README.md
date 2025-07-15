@@ -91,6 +91,7 @@ $ git branch
 
 | Command                               | Description   |
 | ------------------------------------- | ------------- |
+| `git remote -v`           | display all remotes associated with your local repository along with their URLs |
 | `git remote add origin https://github.com/YOURREPO` | link to your empty repo on GitHub. |
 | `git push -u origin main` | push changes to GitHub (`-u`, `--set-upstream` is optional). |
 | From here you can: |  |
@@ -621,7 +622,7 @@ GitHub for enterprises is ideal for organizations that require more stringent da
 |Audit and Monitoring | Companies have access to audit logs for activities within their repositories, but they cannot track our actions outside their repository. | The organization has comprehensive audit and monitoring capabilities across all user activities as all actions are tied to the enterprise-managed account. |
 | Repository ownership and control | We can create personal repositories that we fully control. Organizations have control over repositories created by them but not over personal repositories of the members. | All repositories are owned and controlled by the company. There are no personal repositories, ensuring that all intellectual property remains within the organization's control. |
 
-Apart from the above differences, there are other abilities and restrictions on GitHub EMUs compared to GitHub.com accounts that you can check out [here](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/abilities-and-restrictions-of-managed-user-accounts).
+[Apart from the above differences, there are other abilities and restrictions on GitHub EMUs compared to GitHub.com accounts that you can check out here](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/abilities-and-restrictions-of-managed-user-accounts).
 
 ---
 
