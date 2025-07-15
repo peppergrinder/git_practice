@@ -41,22 +41,33 @@
 + [git stash](#git-stash)
 + [Clone from remote](#clone-from-remote)
 + [Forking](#forking)
+  + [Forking steps](#forking-steps)
 + [git rebase](#rebase)
 + [gitignore](#gitignore)
 + [GitHub Features](#github-features)
   + [GitHub Issues](#github-issues)
   + [GitHub CLI](#github-cli-gh)
   + [GitHub Actions](#github-actions)
+  + [GitHub Codespaces](#github-codespaces)
+  + [GitHub.dev](#githubdev)
   + [GitHub Project Management](#github-project-management)
   + [Conclusion](#conclusion)
++ [Privacy, Security, and Administration](#privacy-security-and-administration)
+  + [Managing GitHub Personal Access Tokens](#managing-github-personal-access-tokens)
+  + [Different Types of GitHub Personal Access Tokens](#different-types-of-github-personal-access-tokens)
+  + [How to Create Personal Access Tokens in GitHub](#how-to-create-personal-access-tokens-in-github)
+  + [GitHub Enterprise Managed Users](#github-enterprise-managed-users)
+    + [Features of GitHub EMU](#features-of-github-emu)
+    + [Major Differences Between GitHub.com and GitHub EMU Accounts](#major-differences-between-githubcom-and-github-emu-accounts)
+  + [GitHub Copilot](#github-copilot)
 
 ## Git integration Visual Studio Code and first-time setup
 
 ```zsh
 git --version
-git config  --global --list
+git config --global --list
 git config --global user.name "UserName"
-git config --global user.email  "your@email.com"
+git config --global user.email "your@email.com"
 git config --global merge.tool vscode # needed for VSC to sync
 git config --global mergetool.vscode.cmd 'code --wait $MERGED' # needed for VSC to sync
 ```
@@ -244,6 +255,8 @@ Git rebase is an important feature for collaborating effectively in a developmen
 | `**/temp/*.log` | match all `.log` files in all `temp` directories and sub-dirs in root-dir. |
 | `v[1-3]/**/*.log` | match all `.log` files in `v1, v2, v3` directories and sub-dirs. |
 
+---
+
 ## GitHub Features
 
 ### GitHub Issues
@@ -264,6 +277,8 @@ To create an Issue, we can click the New Issue button on top of the Issues board
 Issues are a bit like pull requests in that we want to keep the title specific but to the point. For descriptions, repositories often have their own guidelines (just like pull requests do) for including details. For example, if the issue is related to a bug, we should include the error message in the description. Check out a complete issue from the Facebook Folly repository:
 ![Completed Issue](resources/completed-issue.webp)
 Once the issue is posted and now open, collaborators and other GitHub users can add to the discussion and reference this issue by the # in other issues and pull requests.
+
+---
 
 ### GitHub CLI (gh)
 
@@ -422,11 +437,130 @@ Merging pull request Codecademy/try-github-CLI-off-platform-project#1584 (Fix ma
 Once the pull request is merged, check back the status of the issues and notice that the issue is now closed and no longer listed under the open issues:
 `gh issue status`
 
+---
+
 ### GitHub Actions
 
 Want to add automated tests after a pull request is created? Want to trigger something after a branch is merged into main? We can use GitHub Actions!
 
 GitHub Actions is a powerful, advanced GitHub feature that enables users to define custom and automated workflows triggered on various types of events such as pushing code or creating a pull request. The workflows execute inside a temporary container running in GitHub infrastructure.
+[Use cases](https://docs.github.com/en/actions/use-cases-and-examples)
+[Writing workflows](https://docs.github.com/en/actions/writing-workflows)
+[Actions Marketplace](https://github.com/marketplace?type=actions)
+
+#### Simple Workflow Example
+
+```YAML
+# This is a basic workflow to help you get started with Actions
+name: sample_worflow
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called " sample_job "
+  sample_job:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+      # Runs a single command using the runner's shell
+      - name: first_step
+        run: echo  You are at Codecademy.
+      # Runs a set of commands using the runner's shell
+      - name: second_step
+        run: |
+          echo You are learning GitHub Actions.
+          echo It is fun to learn programming at Codecademy!
+```
+
+---
+
+### [GitHub Codespaces](https://www.codecademy.com/courses/learn-git/articles/getting-started-with-github-codespaces)
+
+GitHub Codespaces offers a cloud-based, on-demand development environment within GitHub.
+
+GitHub Codespaces is a platform that allows us to create and manage development environments within GitHub. It helps us create a virtual environment, code in the cloud, and commit the code back to the GitHub repository without worrying about setting up or managing the environment for the project.
+
+With GitHub Codespaces, we can create a fully configured, containerized development environment with all the tools and dependencies needed for our project with only a few clicks.
+
+[Codespaces Homepage](https://github.com/codespaces)
+
+#### GitHub Codespaces lifecycle
+
++ Creation
++ Active Development
++ Timeout
++ Rebuilding
++ Stopping
++ Deleting
+
+#### Customizing GitHub Codespaces
+
+##### Renaming Codespaces
+
+To rename go to: [GitHub codespaces Homepage](https://github.com/codespaces)
+![Rename Codespace](resources/GitHub_Codespace_rename.png)
+
+#### Change machine type for Codespaces
+
+Within same contextual menu as above.
+
+#### Customizing the Command Line Terminal in GitHub Codespaces
+
+To customize the appearance of the terminal, click on the bash icon above the terminal. This gives us different options, such as changing the color and icon to customize the terminal.
+
+We can also change the shell for the terminal. By default, GitHub Codespaces come with the bash, zsh, and fish shells installed.
+
+To change the shell in a terminal, click on the dropdown arrow beside the + button above the terminal. This gives us a menu from which to select a shell.
+
+![Change shell](resources/GitHub_Codespace_shell.png)
+
+#### Configuring Default Timeout and Codespaces Retention Time
+
+By default, a GitHub Codespace is timed out after 30 minutes and stopped. The retention period of a stopped Codespace is 30 days, after which it is permanently deleted.
+
+Visit: [GitHub-Settings](https://github.com/settings/). From there go to the section: "Code, planning, and automation". From here go to [Codespaces](https://github.com/settings/codespaces).
+Here we get sections on Default idle timeout, Region settings and Default retention period.
+
+---
+
+### GitHub.dev
+
+GitHub.dev is a lightweight, web-based code editor provided by GitHub. It allows us to make quick edits to files in GitHub repositories directly in the browser, without the need to clone the repository to a local development environment.
+
+First, sign in to your GitHub account. After signing in, open GitHub.dev for any repository you have. To do this, go to the repository homepage.
+
+We can open the GitHub.dev editor for the repository by one of the following ways:
+
++ Replace .com with .dev in the repository URL.
++ Press the period key `.` on the repository page.
++ Press `Shift` and `.` keys on the repository page. (opens in new tab)
+
+#### GitHub.dev limitations
+
++ No terminal
++ Limited support for extensions
+
+#### GitHub Codespaces vs GitHub.dev
+
+| Aspect      | GitHub Codespaces   | GitHub.dev |
+|-------------|---------------------|------------|
+| Availability | Available to everyone on GitHub.com with free monthly quota for personal accounts.| Available to everyone on GitHub.com for free.|
+| Compute     | A dedicated virtual machine is assigned to each Codespace on which we can run our code. | The editor runs in the local browser and there is no compute facility available. |
+| Start up    | When we create a Codespace, a virtual machine is assigned and configured. This can take up to a few minutes. | GitHub.dev editor opens instantly in the browser, and we can start using it without having to wait for any configuration. |
+| Terminal access | We get terminals with shell options like bash, zsh, and fish to execute commands on the assigned virtual machine. | There is no terminal support. |
+| Extensions  | We can install and use most extensions in Codespaces that we use in a VS Code IDE installed on a local computer. | We can install extensions. However, their functionalities are restricted. |
+
+---
 
 ### GitHub Project Management
 
@@ -444,3 +578,107 @@ An example of a laid-out GitHub project board is [Github's own public roadmap pr
 ### Conclusion
 
 We learned about two GitHub features that can come in handy for teams: issues and projects. We can use GitHub issues to keep track of tasks that need to be worked on. Those issues can then be referenced in pull requests, comments, or projects. GitHub projects are an even newer feature for project management purposes and can be linked to repositories. We can choose from a variety of different board types to organize tasks.
+
+## Privacy, Security, and Administration
+
+### Managing GitHub Personal Access Tokens
+
+Personal access tokens are a great utility for secured and controlled access to GitHub repositories.
+GitHub personal access tokens are authentication tokens that allow us to access GitHub's API and manage repositories through command-line applications without using a password.
+
+Personal access tokens provide a more secure and flexible way to integrate with GitHub. We can create specific tokens for dedicated tasks and revoke them individually if needed. These are particularly useful for automating workflows, accessing protected resources, and managing repository access programmatically.
+
+### [Different Types of GitHub Personal Access Tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+
++ Classic personal access tokens are an alternative to using passwords for authentication, offering more security and flexibility.
++ Fine-grained personal access tokens in GitHub are an enhanced version of classic personal access tokens, offering more precise control over permissions and access.
+
+### How to Create Personal Access Tokens in GitHub
+
+To create personal access tokens in GitHub, go to your GitHub dashboard and click on the profile image in the top-right corner of the page. Click on `Settings` and go to `Developer settings` at the bottom left.
+![Developer Settings](resources/GitHub_DevSettings.png)
+
+### GitHub Enterprise Managed Users
+
+GitHub for Enterprises is a version of GitHub designed specifically for companies and large organizations. It offers enhanced security, compliance, and administrative controls tailored to meet the needs of enterprise environments.
+
+GitHub for enterprises is ideal for organizations that require more stringent data governance, collaboration across large, distributed teams, and customized workflows.
+
+#### Features of GitHub EMU
+
++ Centralized user management: EMUs directly integrate with enterprise identity providers like Google and Azure Active Directory. This allows us to manage user identities, access permissions, and authentication through our existing systems in the company. EMUs also eliminate the need for personal GitHub accounts.
++ Automated provisioning and de-provisioning of user accounts: As the user accounts in GitHub EMU are tied to company accounts, they are automatically created or revoked through the company's identity management system. This helps us ensure that only authorized users have access to the codebase and reduces the risk of orphaned accounts.
++ Role-based access control: EMUs allow us to have granular control over user roles and permissions. This makes it easier for us to control who can view, edit, and manage repositories and other resources within the organization, resulting in strict adherence to security and compliance policies.
++ Enhanced security and compliance: EMUs provide detailed auditing and monitoring capabilities. They allow us to track user activities, access logs, and changes across the company's GitHub environment, aiding in security and compliance efforts.
+
+#### Major Differences Between GitHub.com and GitHub EMU Accounts
+
+| Aspect      | GitHub.com          | GitHub EMU |
+|-------------|---------------------|------------|
+| Account Management | We can create and manage our own personal GitHub accounts. We can join multiple organizations and contribute to both public and private repositories using the same account. | The company manages user accounts through a centralized identity provider. We cannot contribute to any other organization or public repository through a GitHub EMU account. |
+| Access Control | We control our access settings and manage our repositories. Organizations can set permissions for members in their repositories, but we retain control over our accounts. | The company has complete control over access permissions. All user permissions, including account access, can be managed centrally by the administrator. |
+| Security & Compliance | Security and compliance are managed at the user level. Companies can set policies for their specific repositories and teams. However, we are responsible for managing the security of our accounts. | Security and compliance are enforced at the organizational level. Our activities are tied to the company account. This ensures that all actions are compliant with the company's security policies. |
+|Audit and Monitoring | Companies have access to audit logs for activities within their repositories, but they cannot track our actions outside their repository. | The organization has comprehensive audit and monitoring capabilities across all user activities as all actions are tied to the enterprise-managed account. |
+| Repository ownership and control | We can create personal repositories that we fully control. Organizations have control over repositories created by them but not over personal repositories of the members. | All repositories are owned and controlled by the company. There are no personal repositories, ensuring that all intellectual property remains within the organization's control. |
+
+Apart from the above differences, there are other abilities and restrictions on GitHub EMUs compared to GitHub.com accounts that you can check out [here](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/abilities-and-restrictions-of-managed-user-accounts).
+
+---
+
+## [GitHub Copilot](https://www.codecademy.com/learn/learn-git/modules/github-copilot-learn-git/cheatsheet)
+
+### Key Features of GitHub Copilot
+
++ Autocompletion: Predictive Coding Based on Context
++ Code Generation: Turning Comments into Code
++ Multi-Language Support: Understanding and Aiding in Multiple Programming Languages
++ Inline Documentation: Offering Suggestions and Explanations for Code Snippets
+
+### Benefits of Using GitHub Copilot
+
++ Enhancing Developer Productivity and Efficiency
++ Reducing the Likelihood of Errors
++ Assisting in Learning and Understanding New Code Patterns and Languages
++ Reducing Onboarding Time for New Team Members
+
+### Potential Concerns & Limitations
+
++ Concerns About Code Originality and Licensing
++ Copilot's Limitations in Creative Problem-Solving and Unconventional Tasks
++ Understanding Copilot's Occasional Inaccuracies
+
+### [Setting Up GitHub Copilot](https://www.codecademy.com/courses/learn-git/articles/setting-up-git-hub-copilot)
+
+### Keyboard Shortcuts
+
+GitHub Copilot offers a set of keyboard shortcuts to further enhance your productivity. These shortcuts are specific to Copilot within Visual Studio Code. Some essential shortcuts include:
+
++ Toggle Copilot Suggestions: Use `Ctrl+Space` (Windows/Linux) or `Cmd+Space` (macOS) to toggle Copilot suggestions on and off.
++ Accept Suggestion: Press `Tab` or `Enter` to accept the currently highlighted suggestion.
++ Show Documentation: Press `Ctrl+ Shift+ H` (Windows/Linux) or `Cmd+ Shift+ H` (macOS) to display documentation for the current code.
+
+### Integration with Testing
+
+To make up for some of Copilot's shortcomings, consider using it conjunction with testing frameworks to maintain code quality and security:
+
++ Use Copilot to write unit tests for your code. This ensures that the code functions as intended and helps catch regressions.
++ Copilot can assist in generating test cases for various scenarios, aiding in comprehensive testing.
++ Monitor code coverage to ensure that all critical code paths are tested thoroughly.
+
+---
+
+## Review
+
+These are all the skills we've practiced:
+
++ Create a Git project and setup a remote copy on GitHub. Label code changes and move between different versions of your project.
++ Write text on the GitHub interface using Markdown to describe your project and code changes.
++ Create branches in your Git project so you can collaborate with others.
++ Use Git commands to make sure your local copy of code matches the remote copy on GitHub.
++ Use GitHub pull requests to discuss code changes with others.
++ Be familiar with Git rebase, GitHub repository settings, and how to keep a remote repository organized.
++ Create a GitHub profile and explore code written by others
++ Be familiar with intermediate to advanced GitHub features that allow you manage tasks within GitHub itself and automate actions.
++ Use GitHub Copilot to simplify complex coding tasks.
++ Use GitHub Copilot to enhance productivity.
++ Use GitHub Copilot to streamline your workflow.
